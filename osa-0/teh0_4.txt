@@ -1,0 +1,35 @@
+title Käyttäjä luo muistiinpanon
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa tekstikentään ja painaa
+nappia tallenna
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note
+note left of palvelin
+  muistiinpano lähetetään palvelimelle
+end note
+palvelin->selain: status 302, uudelleenohjaus
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  pyydetään HTML
+end note
+palvelin->selain: status 304, saadaan HTML
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+note left of palvelin
+  pyydetään CSS
+end note
+palvelin->selain: status 304, saadaan CSS
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+note left of palvelin
+  pyydetään javascript
+end note
+palvelin->selain: status 304, saadaan javascript
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+note left of palvelin
+  pyydetään muistiinpanot
+end note
+palvelin->selain: status 304, saadaan muistiinpanot
+selain->kayttaja:
+note right of kayttaja
+selain näyttää HTML:n ja CSS:n ja lataa main.js:n.
+Nähdään lisätty muistiinpano

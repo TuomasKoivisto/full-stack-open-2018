@@ -1,0 +1,30 @@
+title Käyttäjä menee sovellukseen (SPA)
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa osoiteriville
+https://fullstack-exampleapp.herokuapp.com/spa
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa/spa
+note left of palvelin
+  pyydetään HTML
+end note
+palvelin->selain: status 304, saadaan HTML
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa/spa.js
+note left of palvelin
+  pyydetään javascript-tiedosto
+end note
+palvelin->selain: status 304, saadaan javascript
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa/main.css
+note left of palvelin
+  pyydetään CSS
+end note
+palvelin->selain: status 304, saadaan CSS
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/spa/data.json
+note left of palvelin
+  pyydetään muistiinpanot json-muodossa
+end note
+palvelin->selain: status 304, saadaan muistiinpanot
+note right of kayttaja
+selain näyttää HTML:n ja CSS:n ja lataa main.js:n.
+Ladatusta JSONista muodostetaan muistiinpanot
+listaan

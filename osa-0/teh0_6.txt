@@ -1,0 +1,13 @@
+title Käyttäjä luo muistiinpanon (SPA)
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa tekstikentään ja painaa
+nappia tallenna. Muistiinpano lisätään listaan
+Muiden tekemät muutokset näkee vasta kun
+sivu ladataan ja data.json haetaan uudestaan.
+end note
+selain->palvelin: POST fullstack-exampleapp.herokuapp.com/new_note_spa
+note left of palvelin
+  muistiinpano lähetetään palvelimelle
+end note
+palvelin->selain: status 201 Created

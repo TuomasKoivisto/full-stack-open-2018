@@ -1,0 +1,35 @@
+title Käyttäjä navigoi muistiinpanoihin
+kayttaja->selain:
+note left of selain
+kayttaja kirjottaa osoiteriville
+https://fullstack-exampleapp.herokuapp.com/notes
+end note
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  pyydetään HTML
+end note
+palvelin->selain: status 304, sivun HTML-koodi
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/notes
+note left of palvelin
+  pyydetään HTML
+end note
+palvelin->selain: status 304, saadaan javascript
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.js
+note left of palvelin
+  pyydetään javascript-tiedosto
+end note
+palvelin->selain: status 304, saadaan javascript
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/main.css
+note left of palvelin
+  pyydetään CSS
+end note
+palvelin->selain: status 304, saadaan CSS
+selain->palvelin: GET fullstack-exampleapp.herokuapp.com/data.json
+note left of palvelin
+  pyydetään muistiinpanot json-muodossa
+end note
+palvelin->selain: status 304, saadaan muistiinpanot
+note right of kayttaja
+selain näyttää HTML:n ja CSS:n ja lataa main.js:n.
+Ladatusta JSONista muodostetaan muistiinpanot
+listaan
